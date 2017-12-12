@@ -9,13 +9,17 @@
 <script type="text/javascript">
 
 	function init(){
+	//Ten event listener po zmianie pliku wywołuje calback function zmianaPliku	
 		document.getElementById("plik").addEventListener("change",zmianaPliku);
 	}
 
+// Event odpalający się po załadowaniu okna i wywołujący callback -> funkcję init zdefinowaną wyżej
 	window.addEventListener("load",init);
 	
 	function zmianaPliku(plik){
-		alert(plik.target.files[0].name);
+		console.log(plik);
+		document.getElementById("par").innerHTML = plik.target.files[0].name;
+		//alert(plik.target.files[0].name);
 	}
 
 </script>
@@ -25,6 +29,6 @@
 <body>
 
     <input type="file" id="plik" />
-
+	<p id="par"></p>
 </body>
 </html>

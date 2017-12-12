@@ -2,39 +2,34 @@
 
 <head>
 <meta charset="utf-8">
-<title>File Reader</title>
+<title>File Reader Image</title>
 
 <link rel="stylesheet" type="text/css" href="style.css" />
 
 <script type="text/javascript">
 
 	function init(){
-		document.getElementById("plik").addEventListener("change",zmianaPliku);
+		document.getElementById("fileInput").addEventListener("change",onChange);
 	}
 
 	window.addEventListener("load",init);
 	
-	function zmianaPliku(plik){
-		var nowyplik = plik.target.files[0];
+	function onChange(loader){
+		var newFile = loader.target.files[0];
 		
-		if(!nowyplik.type.match("image/*") ){
+		if(!newFile.type.match("image/*") ){
 			alert("To nie jest plik obrazka");
 			return;
 		}
 		
 		var reader = new FileReader();
+		reader.readAsDataURL(newFile);
 		
-		reader.onload = function(zdarzenie){
-			var zawartosc = zdarzenie.target.result;
-			
-			var obrazek = new Image();
-			obrazek.src = zdarzenie.target.result;
-			document.getElementById("tresc").appendChild(obrazek);
-			
-		}
-		
-		reader.readAsDataURL(nowyplik);
-		
+		reader.onload = function(event){
+			var image = new Image();
+			image.src = event.target.result;
+			document.getElementById("container").appendChild(image);	
+		}	
 	}
 
 </script>
@@ -43,8 +38,8 @@
 
 <body>
 
-    <input type="file" id="plik" />
-    <div id="tresc"></div>
+    <input type="file" id="fileInput" />
+    <div id="container"></div>
 
 </body>
 </html>

@@ -2,38 +2,34 @@
 
 <head>
 <meta charset="utf-8">
-<title>File Reader</title>
+<title>File Reader TXT fragment</title>
 
 <link rel="stylesheet" type="text/css" href="style.css" />
 
 <script type="text/javascript">
 
 	function init(){
-		document.getElementById("plik").addEventListener("change",zmianaPliku);
+		document.getElementById("fileInput").addEventListener("change",onChange);
 	}
 
 	window.addEventListener("load",init);
 	
-	function zmianaPliku(plik){
-		var nowyplik = plik.target.files[0];
-		
-		var pocz = 0;
-		var koniec = 20;
-		
-		if(nowyplik.type != "text/plain" ){
+	function onChange(loader){
+		var newFile = loader.target.files[0];
+		var start = 0;
+		var end = 40;
+		if(newFile.type != "text/plain" ){
 			alert("To nie jest plik tekstowy");
 			return;
 		}
 		
 		var reader = new FileReader();
 		
-		reader.onload = function(zdarzenie){
-			var zawartosc = zdarzenie.target.result;
-			document.getElementById("tresc").innerHTML = zawartosc;
+		reader.onload = function(event){
+			var content = event.target.result;
+			document.getElementById("container").innerHTML = content;
 		}
-		
-		var fragment = nowyplik.slice(pocz,koniec);
-		
+		var fragment = newFile.slice(start,end);
 		reader.readAsText(fragment);
 		
 	}
@@ -44,8 +40,11 @@
 
 <body>
 
-    <input type="file" id="plik" />
-    <div id="tresc"></div>
+    <input type="file" id="fileInput" />
+    <div id="container"></div>
 
 </body>
 </html>
+
+
+

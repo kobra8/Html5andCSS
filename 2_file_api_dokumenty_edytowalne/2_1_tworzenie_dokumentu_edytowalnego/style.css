@@ -8,9 +8,9 @@
 
 
 #edytor {
-	border: 1px solid #CCC;
+	/* border: 1px solid #CCC; */
 	width: 80%;
-	height: 300px;
+	height: auto;
 	padding: 20px;
 	line-height: 30px;
 	font-size: 22px;

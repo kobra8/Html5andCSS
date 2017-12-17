@@ -9,10 +9,11 @@
 <script type="text/javascript">
 	
 	function init(){
-		document.getElementById("obrazek").addEventListener("dragstart",obsluzPoczatek, false);
+		document.getElementById("image").addEventListener(
+			"dragstart",onDragStart, false);
 	}
 	
-	function obsluzPoczatek(){
+	function onDragStart(){
 		this.style.opacity = "0.2";
 	}
 	
@@ -26,7 +27,7 @@
 
 <body>
 
-    <img src="okladka.png" alt="#" id="obrazek" />
+    <img src="okladka.png" alt="#" id="image" />
     
 </body>
 </html>

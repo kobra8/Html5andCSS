@@ -2,33 +2,39 @@
 
 <head>
 <meta charset="utf-8">
-<title>Przeciąganie</title>
+<title>Przeciąganie pliku</title>
 
 <link rel="stylesheet" type="text/css" href="style.css" />
 
 <script type="text/javascript">
 	
 	function init(){
-		document.getElementById("zrzut").addEventListener("dragover",obsluzDragover,false);
-		document.getElementById("zrzut").addEventListener("drop",obsluzDrop,false);
+		document.getElementById("target").addEventListener("dragover",onDragover,false);
+		document.getElementById("target").addEventListener("drop",onDrop,false);
 	}
 
-	function obsluzDragover(e){
+	function onDragover(e){
 		e.preventDefault();
 		return false;
 	}
 	
-	function obsluzDrop(e){
-		e.preventDefault();
+	function onDrop(event){
+		//Blokowanie domyślnego zachowania przeglądarki np. dla plików
+		// następuje otwarcie, pobranie lub wyświetlenie
+		event.preventDefault();
 		
-		var plik = e.dataTransfer.files[0];
-		alert(plik.name);
+		var uploadedFile = event.dataTransfer.files[0];
+		alert(uploadedFile.name);
 	}
 	
 	window.onload = function(){
 		init();
 	}
 	
+//The DataTransfer.files property is a list of the files in the drag operation. 
+//If the operation includes no files, the list is empty.
+//This feature can be used to drag files from a user's desktop to the browser.
+
 </script>
 
 </head>
@@ -36,7 +42,7 @@
 <body>
 
 
-    <div id="zrzut">
+    <div id="target">
     </div>
     
 </body>

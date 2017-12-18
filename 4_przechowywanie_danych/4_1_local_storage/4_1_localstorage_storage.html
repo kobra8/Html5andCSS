@@ -2,23 +2,27 @@
 
 <head>
 <meta charset="utf-8">
-<title>Web Storage</title>
+<title>Local Storage</title>
 
 <link rel="stylesheet" type="text/css" href="style.css" />
 
 <script type="text/javascript">
+	var value = '';
 
-	function ustawWartosc(){
-		localStorage.setItem('nazwa','Kurs HTML5');
+	function setValue(){
+		this.value = document.getElementById('nameInput').value;
+		localStorage.setItem('nazwa',this.value);
 	}
 	
-	function pokazWartosc(){
+	function viewValue(){
 		var wartosc = localStorage.getItem('nazwa');
-		alert(wartosc);
+		document.getElementById('viewName').innerHTML=wartosc;
+		//alert(wartosc);
 	}
 	
-	function usunWartosc(){
+	function deleteValue(){
 		localStorage.removeItem('nazwa');
+		document.getElementById('viewName').innerHTML='';
 	}
 	
 
@@ -27,10 +31,12 @@
 </head>
 
 <body>
-
-	<input type="button" value="Ustaw" id="ustaw" onClick="ustawWartosc()"/>
-    <input type="button" value="Pokaż" id="pokaz" onClick="pokazWartosc()"/>
-    <input type="button" value="Usuń" id="usun" onClick="usunWartosc()"/>   
+	<input id="nameInput"type="text">
+	<input type="button" value="Ustaw" id="ustaw" onClick="setValue()"/>
+    <input type="button" value="Pokaż" id="pokaz" onClick="viewValue()"/>
+	<input type="button" value="Usuń" id="usun" onClick="deleteValue()"/>   
+	
+	<h2 id="viewName"></h2>
 
 </body>
 </html>

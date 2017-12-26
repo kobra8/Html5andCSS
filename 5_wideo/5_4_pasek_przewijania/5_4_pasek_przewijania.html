@@ -13,6 +13,8 @@
 		var playButton = document.getElementById('p_play');
 		var pasek = document.getElementById('p_range');
 		
+		console.log('Długość filmu: ' + video.duration);
+
 		playButton.addEventListener("click",function(){
 			if(video.paused == true){
 				video.play();
@@ -24,6 +26,9 @@
 		})
 		pasek.addEventListener("click",function(){
 			var pozycja = video.duration * (pasek.value/100);
+			console.log("Watrość paska: " + pasek.value);
+			console.log("Aktualna pozycja czasowa filmu: " + video.currentTime);
+			console.log("Nowa pozycja po przeliczeniu: " + pozycja);
 			video.currentTime = pozycja;
 		})
 		

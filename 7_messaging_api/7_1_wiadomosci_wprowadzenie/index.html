@@ -9,15 +9,18 @@
 </head>
 
 <script>
-
+	//Komunikacja pomiędzy Window objects:
+	//Wysyłanie wiadomości w ramach jednej lokalnej domeny => Działa tylko na serwerze
 	window.onload = function(){
 		var iframe = document.getElementById('iframe').contentWindow;
-		var frm = document.getElementById('formularz');
+		var form = document.getElementById('form');
 		
-		frm.onsubmit = function(e){
+		form.onsubmit = function(event){
+			//Pobieranie treści wiadomości z inputa
 			var wiad_tresc = document.getElementById('wiadomosc').value;
-			iframe.postMessage(wiad_tresc,"http://localhost");
-			e.preventDefault();
+			//Metoda postMessage przekazuje wiadomość w argumentach: treść, adres
+			iframe.postMessage(wiad_tresc,"http://127.0.0.1");
+			event.preventDefault();
 		}
 	}
 
@@ -27,7 +30,7 @@
 
     <h1>Wiadomości</h1>
     
-	<form id="formularz" action="#">
+	<form id="form" action="#">
     	<p><label for="wiadomosc">Wiadomość</label><input name="wiadomosc" type="text" id="wiadomosc" /></p>
         <p><input type="submit" value="Wyślij" id="submit"/></p>
     </form>

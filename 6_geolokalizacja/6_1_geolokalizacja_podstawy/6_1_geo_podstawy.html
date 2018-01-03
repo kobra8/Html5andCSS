@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 
 <head>
-<meta charset="utf-8">
-<title>Geo</title>
+	<meta charset="utf-8">
+	<title>Geo</title>
 
-<link rel="stylesheet" type="text/css" href="style.css" />
+	<link rel="stylesheet" type="text/css" href="style.css" />
 
-<script>
+	<script>
 
-	function pobierzPolozenie(){
-		if(navigator.geolocation){
-			navigator.geolocation.getCurrentPosition(pokazPolozenie);
-		} else {
-			alert("Brak obsługi geolokalizacji");
+		function getLocation() {
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition((x) => {
+				//Argumentem funkcji getCurrentPosition jest callback, który zwraca obiekt Position
+					console.log(x); //Obiekt Position
+					alert("Długość: " + x.coords.longitude + " Szerokość: " + x.coords.latitude);
+				});
+			} else {
+				alert("Brak obsługi geolokalizacji");
+			}
 		}
-	}
-	
-	function pokazPolozenie(polozenie){
-		alert("Długość: " + polozenie.coords.longitude + " Szerokość: " + polozenie.coords.latitude);
-	}
 
-</script>
+	</script>
 
 </head>
 
 <body>
 
-   <input type="button" id="pokaz" value="Pokaż" onClick="pobierzPolozenie()" />
+	<input type="button" id="pokaz" value="Pokaż" onClick="getLocation()" />
 
 </body>
+
 </html>

@@ -11,10 +11,10 @@
 <script>
 	
 	if(navigator.geolocation){
-		navigator.geolocation.getCurrentPosition(function(polozenie){
-			var szer = polozenie.coords.latitude;
-			var dlug = polozenie.coords.longitude
-			
+		navigator.geolocation.getCurrentPosition((x)=> {
+			var szer = x.coords.latitude;
+			var dlug = x.coords.longitude
+			//Odwołanie do API Google maps LatLng => definiujemy obiekt z pozycją
 			var koord = new google.maps.LatLng(szer,dlug);
 			
 			var opcje = {
@@ -23,8 +23,9 @@
 				mapTypeControl: true,
 				mapTypeId: google.maps.MapTypeId.ROADMAP
 			};
-			
-			var mapa = new google.maps.Map(document.getElementById("kontener"),opcje);
+			// Funkcja tworzenia mapy z argumentami lementu DOM i opcji mapy
+			var mapa = new google.maps.Map(document.getElementById("mapContainer"),opcje);
+			//Definicja znacznika mapy
 			var marker = new google.maps.Marker({
 				position: koord,
 				map: mapa,
@@ -41,7 +42,7 @@
 
 <body>
 
-	<div id="kontener">
+	<div id="mapContainer">
     </div>
 
 

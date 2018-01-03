@@ -8,17 +8,20 @@
 
 <script>
 
-	function pokazWiadomosc(zdarz){
-		var wiadomosc;
-		if(zdarz.origin != "http://localhost"){
-			wiadomosc = "Brak uprawnień";
+	function showMessage(event){
+		var messageBody;
+		//Sprawdzenie czy wiadomość przyszła z określonego adresu
+		if(event.origin != "http://127.0.0.1"){
+			messageBody = "Brak uprawnień";
 		} else {
-			wiadomosc = zdarz.data;
+			//przypisanie treści wiadomości do zmiennej
+			messageBody = event.data;
 		}
-		document.getElementById('tresc').innerHTML = wiadomosc;
+		document.getElementById('tresc').innerHTML = messageBody;
 	}
 
-	window.addEventListener("message", pokazWiadomosc, false);
+	//Nasłuchiwanie zdarzenia przyjścia wiadomości
+	window.addEventListener("message", showMessage, false);
 
 </script>
 

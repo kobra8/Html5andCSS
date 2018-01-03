@@ -1,9 +1,9 @@
 var i = 0;
 
-function odliczaj(){
+function countNumbers(){
 	i = i + 1;
-	postMessage(i);
-	setTimeout("odliczaj()",50);
+	postMessage(i); 	//Wysyłamy bieżącą wartość licznika do głównego skryptu aplikacji
+	setTimeout("countNumbers()",100);
 }
 
-odliczaj();
+countNumbers();

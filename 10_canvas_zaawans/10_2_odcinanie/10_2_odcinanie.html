@@ -13,14 +13,21 @@
 		var ctx = cnv.getContext("2d");
 		
 		var img = document.getElementById("obraz");
-		ctx.beginPath();
-		ctx.moveTo(200,170);
-		ctx.lineTo(360,190);
-		ctx.lineTo(240,330);
-		ctx.closePath();
-		ctx.stroke();
-		ctx.clip();
-		ctx.drawImage(img,160,115);
+
+		//Definicja kształtu do maski -> trójkąt
+		// ctx.beginPath();
+		// ctx.moveTo(200,170);
+		// ctx.lineTo(360,190);
+		// ctx.lineTo(240,330);
+		// ctx.closePath();
+		// ctx.stroke();
+
+		//Definicja kształtu do maski -> koło
+		ctx.arc(300,250,100,0, 2 * Math.PI)
+
+		ctx.clip(); //Tworzenie maski
+		ctx.drawImage(img,160,115); 
+		// Wspólrzędne obrazka dobrane tak aby był na środku elementu Canvas
 		
 	}
 

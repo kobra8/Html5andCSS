@@ -12,13 +12,14 @@
 		var cnv = document.getElementById("canvas");
 		var ctx = cnv.getContext("2d");
 		
-		var tekst = "Canvas Tekst";
+		//Text typu canvas to krzywe nie fonty
+		var text = "Tekst przykładowy do użycia w Canvas";
 		
 		ctx.font = "25px Verdana";
-		ctx.fillStyle = "#CCC";
-		ctx.strokeStyle = "#666";
-		ctx.fillText(tekst,100,50);
-		ctx.strokeText(tekst,100,50);
+		ctx.fillStyle = "navy";
+		ctx.strokeStyle = "gray";
+		ctx.fillText(text,100,50); // Odsunięcie od krawędzi
+		ctx.strokeText(text,100,50); //Generowanie obrysu -> te same współrzędne co tekst
 		
 	}
 

@@ -11,14 +11,15 @@
 	window.onload = function(){
 		var cnv = document.getElementById("canvas");
 		var ctx = cnv.getContext("2d");
-		
+		//Definicja rozmiaru i położenia gradientu -> tu linear gradient
 		var grad = ctx.createLinearGradient(0,0,200,0);
 		
-		grad.addColorStop(0,"#FF8500");
-		grad.addColorStop(0.5,"#000");
-		grad.addColorStop(1,"#0776a0");
+		//Definicja kolorów i kolejności w linii
+		grad.addColorStop(0,"yellow");
+		grad.addColorStop(0.5,"green");
+		grad.addColorStop(1,"blue");
 		
-		ctx.fillStyle = grad;
+		ctx.fillStyle = grad; // Użycie wcześniej zdefiniowanego gradientu jako wypełnienia
 		ctx.fillRect(0,0,200,150);
 		
 	}

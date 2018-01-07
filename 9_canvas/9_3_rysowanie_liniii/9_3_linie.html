@@ -12,13 +12,13 @@
 		var cnv = document.getElementById("canvas");
 		var ctx = cnv.getContext("2d");
 		
-		ctx.beginPath();
-		ctx.moveTo(0,0);
+		ctx.beginPath(); //Rozpoczęcie linii
+		ctx.moveTo(100,100); //Punkt startowy
 		ctx.lineWidth = "4";
-		ctx.lineTo(200,100);
-		ctx.lineTo(100,180);
-		ctx.lineTo(50,410);
-		ctx.stroke();
+		ctx.lineTo(200,200); // Kolejne współrzędne linii
+		ctx.lineTo(100,300);
+		ctx.lineTo(200,400);
+		ctx.stroke(); // Zatwierdzanie linii
 		
 	}
 

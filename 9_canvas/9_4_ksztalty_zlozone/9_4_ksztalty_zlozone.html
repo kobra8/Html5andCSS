@@ -12,8 +12,23 @@
 		var cnv = document.getElementById("canvas");
 		var ctx = cnv.getContext("2d");
 		
+		ctx.fillStyle = "orange";
+		ctx.strokeStyle = "green";
+		ctx.lineWidth = "5";
+
 		ctx.beginPath();
-		ctx.arc(300,300,150,0,1 * Math.PI);
+		ctx.moveTo(200,200);
+		ctx.lineTo(300,100);
+		ctx.lineTo(100,100);
+		ctx.closePath(); //Auto zamykanie kształtu
+		ctx.fill(); //Wypełnienie kształtu
+		ctx.stroke();
+
+		ctx.beginPath();
+		//Definicja łuku - ściezki
+		//Cały okrąg -> 2, pół okręgu -> 1
+		//Współrzędne, promień, kąt początkowy, kąt końcowy
+		ctx.arc(300,300,150, 0, 1 * Math.PI);
 		ctx.stroke();
 		
 	}

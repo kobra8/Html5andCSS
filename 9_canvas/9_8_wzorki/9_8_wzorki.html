@@ -12,14 +12,16 @@
 		var cnv = document.getElementById("canvas");
 		var ctx = cnv.getContext("2d");
 		
-		var wzorObr = new Image();
+		var patternImg = new Image();
 		
-		wzorObr.onload = function(){
-			ctx.fillStyle = ctx.createPattern(wzorObr,"repeat");
+		patternImg.onload = function(){
+			//Definicja wypełnienia -> tutaj pattern
+			ctx.fillStyle = ctx.createPattern(patternImg,"repeat");
+			//Rozmiary zdefiniowane jako cały Canvas
 			ctx.fillRect(0,0,ctx.canvas.width,ctx.canvas.height);
 		}
 		
-		wzorObr.src = "images/wzr.png";
+		patternImg.src = "images/wzr.png";
 		
 	}
 

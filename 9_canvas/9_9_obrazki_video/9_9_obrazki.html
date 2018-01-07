@@ -1,40 +1,43 @@
 <!DOCTYPE html>
 
 <head>
-<meta charset="utf-8">
-<title>Canvas</title>
+	<meta charset="utf-8">
+	<title>Canvas</title>
 
-<link rel="stylesheet" type="text/css" href="style.css" />
+	<link rel="stylesheet" type="text/css" href="style.css" />
 
-<script>
+	<script>
 
-	window.onload = function(){
-		var video = document.getElementById("film");
-		video.play();
-		
-		setInterval(function(){
+		window.onload = function () {
+			var image = document.getElementById("obraz")
+			var video = document.getElementById("film");
+			video.play(); //Uruchomienie odtwarzania video
+
 			var cnv = document.getElementById("canvas");
 			var ctx = cnv.getContext("2d");
-			var video = document.getElementById("film");
-			ctx.drawImage(video,0,0);
-			},33);
-		
-		
 
-		
-	}
+			ctx.drawImage(image, 0, 370, 140, 135) // Współrzędne i rozmiar
 
-</script>
+			// Funkcja która wyświetla film jako pojedyncze klatki
+			//w określonych odstepach czasu
+			setInterval(function () {
+				ctx.drawImage(video, 0, 0);
+			}, 33);
+		}
+
+	</script>
 
 </head>
 
 <body>
 
-    <h1>Canvas</h1>
-    
-    <canvas id="canvas" width="600px" height="500px">Brak obsługi CANVAS</canvas>
-    <img src="images/kurs_wp.png" id="obraz" />
-    <video src="images/video.mp4" id="film"></video>
+	<h1>Canvas</h1>
+
+	<canvas id="canvas" width="600px" height="500px">Brak obsługi CANVAS</canvas>
+	<!-- Obrazek i wideo umieszczamy w html i ukrywamy za pomocą display: none -->
+	<img src="images/kurs_wp.png" id="obraz" />
+	<video src="images/video.mp4" id="film"></video>
 
 </body>
+
 </html>

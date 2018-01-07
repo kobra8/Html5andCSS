@@ -9,19 +9,20 @@
 <script>
 
 	window.onload = function(){
-		var cnv = document.getElementById("canvas");
-		var ctx = cnv.getContext("2d");
+		var canvasContainer = document.getElementById("canvas");
+		var context = canvasContainer.getContext("2d");
 		
-		var color = "#CCC";
+		var color = "red";
 		
-		ctx.fillStyle = color;
-		ctx.fillRect(0,0,50,50);
+		context.fillStyle = color;
+		//Współrzędne - lewy górny róg canvas i rozmiar
+		context.fillRect(0,0,50,50);
 		
-		ctx.fillStyle = color;
-		ctx.fillRect(50,50,50,50);
+		context.fillStyle = "green";
+		context.fillRect(50,50,50,50);
 		
-		ctx.fillStyle = color;
-		ctx.fillRect(100,100,50,50);
+		context.fillStyle = "blue";
+		context.fillRect(100,100,50,50);
 	}
 
 </script>

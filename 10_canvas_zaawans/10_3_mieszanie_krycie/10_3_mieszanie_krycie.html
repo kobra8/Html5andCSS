@@ -12,7 +12,10 @@
 		var cnv = document.getElementById("canvas");
 		var ctx = cnv.getContext("2d");
 			
-		ctx.globalCompositeOperation = 'destination-atop'
+		//ctx.globalCompositeOperation = 'destination-atop' -> efekty zobacz w dokumentacji
+		ctx.globalCompositeOperation = 'xor' // Część wspólna
+
+		//ctx.globalAlpha = 0.4; // Krycie 1 -pełne, 0 przeźroczystość
 		
 		ctx.fillStyle = "#FF0000";
 		ctx.fillRect(200,200,150,150);

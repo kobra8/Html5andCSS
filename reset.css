@@ -47,7 +47,7 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-/* micro clear fix */
+/* micro clear fix - fix collapsed container in floats blocks*/
 .grouping:before,
 .grouping:after {
 	content: "";
@@ -56,6 +56,8 @@ table {
 .grouping:after {
 	clear: both;
 }
+
+
 img, iframe, video, object {
 	max-width: 100%;
 }
